@@ -16,6 +16,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "react/prop-types": [0, { ignore: 0, customValidators: 0, skipUndeclared: 0 }]
+    "react/prop-types": [0, { ignore: 0, customValidators: 0, skipUndeclared: 0 }],
+    "semi":["error","always"]
   },
 }
