@@ -1,11 +1,10 @@
-
-function Avatar({ dirImg, altImg, avatarName}) {
+function Avatar({ dirImg, altImg, avatarName }) {
   return (
     <>
-      <div>
-        <img src={dirImg} alt={altImg} />
+      <div className="w-44 h-44 border overflow-hidden rounded-full">
+        <img src={dirImg} alt={altImg} className="w-full" />
       </div>
-      <strong>{avatarName}</strong>
+      {avatarName ? <h3>{avatarName}</h3> : null}
     </>
   );
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "Antoni Toapanta",
+    "testimonio": "Es una buen Gym, mi autoestima a crecido de manera creciente, eh echo grandes amigos en el camino",
+    "avatar": "https://img.freepik.com/psd-gratis/ilustracion-3d-avatar-o-perfil-humano_23-2150671142.jpg?w=826&t=st=1703726500~exp=1703727100~hmac=4ad688ab9299fa36b1e33ed723cd42307cc08a9ce77be7666f55ab848293a5ef",
+    "alt": "imgAntoniToapanta",
+    "plan":"Mamado"
+  },
+  {
+    "id": 1,
+    "name": "Camila Morales",
+    "testimonio": "Quiero expresar mi gratitud hacia GYM RAT por haber transformado mi vida de una manera que nunca imaginé. Antes de unirme, me encontraba en una rutina sedentaria y me sentía sin energía. Sin embargo, desde el momento en que ingresé a este gimnasio, todo cambió",
+    "avatar": "https://media.vogue.mx/photos/5e1e3181964d3e000833efae/2:3/w_1920,c_limit/scarlett-johansson-peinado-raya-en-medio.jpg",
+    "alt": "imgCamilaMorales",
+    "plan":"Mamado"
+  },
+  {
+    "id": 2,
+    "name": "Carlos Parra",
+    "testimonio": "Es una buen Gym, mi autoestima a crecido de manera creciente, eh echo grandes amigos en el camino",
+    "avatar": "https://img.freepik.com/fotos-premium/perfil-personaje-masculino-representacion-3d-o-avatar-joven-feliz-sombrero-cubo-ropa-azul-buena_477250-60.jpg?w=826",
+    "alt": "imgCarlosParra",
+    "plan":"Mamado"
+  }
+]
