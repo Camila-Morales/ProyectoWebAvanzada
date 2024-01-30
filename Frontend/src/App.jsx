@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <h1>SOY APP PRINCIPAL</h1> 
-      <Planes />  
-      <AboutUs />      
+      <AboutUs />  
+      <Planes />    
       <Testimonios />      
     </>
   );
