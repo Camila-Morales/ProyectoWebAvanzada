@@ -1,6 +1,6 @@
 import Image from '../atomos/Image';
-import Imagender from '../../../public/imgder.png';
-import Imagenizq from '../../../public/imgizq.png';
+import Imagender from '/public/imgder.png';
+import Imagenizq from '/public/imgizq.png';
 
 function AboutUsLeft() {
   return (
