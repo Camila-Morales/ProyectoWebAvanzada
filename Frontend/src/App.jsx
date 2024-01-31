@@ -1,4 +1,6 @@
 import AboutUs from "./components/organismos/AboutUs";
+import Home from "./components/organismos/Home";
+import Navbar from "./components/organismos/Navbar";
 import Testimonios from "./components/organismos/Testimonios";
 import Planes from "./components/organismos/planes";
 
@@ -6,7 +8,8 @@ import Planes from "./components/organismos/planes";
 function App() {
   return (
     <>
-      <h1>SOY APP PRINCIPAL</h1> 
+      <Navbar/>
+      <Home/>
       <AboutUs />  
       <Planes />    
       <Testimonios />      
