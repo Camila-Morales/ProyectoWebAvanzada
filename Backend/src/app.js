@@ -2,9 +2,11 @@ import express from "express"
 import email from "./routes/email.routes.js"
 import { connectDB } from "./libs/DB.js";
 import auth from './routes/auth.routes.js'
+import cors from 'cors'
 
 connectDB()
 const app = express();
+app.use(cors())
 app.use(express.json())
 
 app.get('/',(req,res)=>{
