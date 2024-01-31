@@ -1,6 +1,6 @@
-import Button from "../atomos/Button";
+import Button from "./Button";
 
-function CajaTittles({ texto, arregloPlan, precio }) {
+function CardPlanes({ texto, arregloPlan, precio }) {
   return (
     <div className="flex flex-col w-1/3 gap-3 max-md:w-screen">
       <div className="bg-[#dcdcdc] p-1 rounded-md text-center h-11">
@@ -31,4 +31,4 @@ function CajaTittles({ texto, arregloPlan, precio }) {
   );
 }
 
-export default CajaTittles;
+export default CardPlanes;
