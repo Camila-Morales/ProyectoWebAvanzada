@@ -4,7 +4,6 @@ function Planes() {
     return ( 
         <div className="bg-black">
             <PlanesUp />
-
         </div>
     );
 }

@@ -1,6 +1,6 @@
 function TittlePlanes() {
     return (
-      <div className="text-white text-center flex flex-col items-center justify-center ">
+      <div className="text-white text-center flex flex-col items-center justify-center h-60 ">
         <h3 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-2">
           <span className="border-b-2 border-white">PLANES</span>
         </h3>

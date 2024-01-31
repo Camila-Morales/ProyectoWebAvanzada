@@ -10,16 +10,12 @@ function planesUp() {
 
 
   return (
-    <div className="grid grid-rows-2 gap-4">
+    <div className="flex flex-col">
       <TittlePlanes />
-      <div className="flex gap-5 m-3">
-
+      <div className="flex gap-5 m-3 max-md:flex-wrap">
         <CajaTittles texto={"PLATINUM FIT"} arregloPlan={plan1} precio={30} />
-
         <CajaTittles texto={"ELITE WELLNESS"} arregloPlan={plan3} precio={100} />
-
         <CajaTittles texto={"GOLD PERFORMANCE"} arregloPlan={plan2} precio={50} />
-        
       </div>
 
 
