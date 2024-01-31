@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HiHome, HiDevicePhoneMobile, HiStar } from "react-icons/hi2";
 import { HiAnnotation, HiOutlinePlus, HiDotsVertical } from "react-icons/hi";
 import NavbarItem from "../moleculas/NavbarItem";
-import logo from "../../../public/logo_white.png";
+import logo from "/logo_white.png";
 import { RxAvatar } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
