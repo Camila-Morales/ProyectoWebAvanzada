@@ -7,7 +7,7 @@ router.post("/email", async (req, res) => {
   const { name, email } = req.body;
   try {
     await sendEmail(email);
-    res.send("Enviado");
+    res.send("Enviado 😎🫵")
   } catch (err) {
     console.log(err);
   }
