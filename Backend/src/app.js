@@ -3,11 +3,13 @@ import email from "./routes/email.routes.js"
 import { connectDB } from "./libs/DB.js";
 import auth from './routes/auth.routes.js'
 import cors from 'cors'
+import cookieParser from "cookie-parser";
 
 connectDB()
 const app = express();
 app.use(cors())
 app.use(express.json())
+app.use(cookieParser())
 
 app.get('/',(req,res)=>{
     res.send("Server ON")

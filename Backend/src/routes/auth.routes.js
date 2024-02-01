@@ -1,12 +1,16 @@
-import {Router} from "express";
+import { Router } from "express";
+
+import {
+  Login,
+  Logout,
+  Profile,
+  Register,
+} from "../controllers/auth.controller.js";
+import { authRequired } from "../middlewares/validateToken.js";
 const router = Router();
 
-router.post("/login",(req,res)=>{
-    res.send("Hola desde Usuarios");
-})
-router.post("/register",(req,res)=>{
-    res.send("Hola desde Usuarios");
-})
-
+router.post("/register", Register);
+router.post("/login", Login);
+router.post("/logout", Logout);
+router.get("/profile",authRequired,Profile);
 export default router;
-
