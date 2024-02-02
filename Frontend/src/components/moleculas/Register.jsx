@@ -1,22 +1,9 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Register({ login }) {
-  const [register, setRegister] = useState({
-    name: "",
-    lastName: "",
-    email: "",
-    password: "",
-    birthdate: "",
-    gender: "",
-  });
+  const { register, handleSubmit } = useForm();
   const [passwordC, setPasswordC] = useState("");
-  const onChangeDate = (e) => {
-    const { name, value } = e.target;
-    setRegister({
-      ...register,
-      [name]: value,
-    });
-  };
   const onChangeP = (e) => {
     const data = e.target.value;
     setPasswordC(data);
@@ -31,44 +18,40 @@ function Register({ login }) {
         <strong className="text-xl">Registrate</strong>
         <hr className="w-[15rem]" />
       </h1>
-      <form action="" className="flex flex-col h-96 gap-3 justify-end">
+      <form
+        onSubmit={handleSubmit((val) => {
+          console.log(val);
+        })}
+        className="flex flex-col h-96 gap-3 justify-end"
+      >
         <div className="flex gap-5">
           <input
             className="styleInputs"
             type="text"
-            name="name"
-            onChange={onChangeDate}
+            {...register("name", { required: true })}
             placeholder="Nombre"
-            value={register.name}
-            required
           />
           <input
             className="styleInputs"
             type="text"
             name="lastName"
-            onChange={onChangeDate}
-            value={register.lastName}
+            {...register("lastname", { required: true })}
             placeholder="Apellido"
-            required
           />
         </div>
         <input
           className="styleInputs"
           type="email"
           name="email"
-          onChange={onChangeDate}
-          value={register.email}
+          {...register("email", { required: true })}
           placeholder="Email"
           required
         />
         <input
           className="styleInputs"
           type="password"
-          name="password"
-          onChange={onChangeDate}
-          value={register.password}
+          {...register("password", { required: true })}
           placeholder="Contraseña"
-          required
         />
         <input
           className="styleInputs"
@@ -79,14 +62,15 @@ function Register({ login }) {
           required
           placeholder="Ingrese Nuevamente su contraseña"
         />
-        <input className="styleInputs" type="date" name="birthdate" />
+        <input
+          className="styleInputs"
+          type="date"
+          {...register("birthdate", { required: true })}
+        />
         <div className="relative rounded-xl ">
           <select
             className="styleInputs appearance-none w-full"
-            name="gender"
-            onChange={onChangeDate}
-            value={register.gender}
-            required
+            {...register("gender", { required: true })}
           >
             <option value="" disabled>
               Genero
@@ -104,7 +88,6 @@ function Register({ login }) {
               <path d="M10 12l-8-8-1 1 9 9 9-9-1-1-8 8z" />
             </svg>
           </div>
-          
         </div>
         <button
           className="bg-red-900 h-12 rounded-3xl hover:bg-red-950"
