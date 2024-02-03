@@ -1,34 +1,30 @@
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../context/AuthContext";
+import useAuth from "../../hooks/useAuth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 function Login({ registerF }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signup, isAuth,errors:AuthError} = useAuth();
+  const { signin, isAuthenticated, error } = useAuth();
   const navigate = useNavigate();
   const handleActivate = (e) => {
     e.preventDefault();
     registerF();
   };
   const onSubmit = handleSubmit((value) => {
-    signup(value);
+    signin(value);
   });
   useEffect(() => {
-    if (isAuth) navigate("/profile");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuth]);
+    if (isAuthenticated) navigate("/profile");
+  }, [isAuthenticated, navigate]);
   return (
     <div className=" relative w-[28rem] h-[30rem] text-white bg-red-700 flex flex-col  gap-5 justify-center items-center ">
       {
-        AuthError.map((err,i)=>(
-          <div key={i} className="absolute top-0 text-center bg-red-500 p-1 w-full text-white">
-            {err}
-          </div>
-        ))
+        error.map((err,index)=>(<div className="absolute top-0 bg-blue-800 w-full flex justify-center items-center h-8" key={index}>{err}</div>))
       }
       <h1 className="absolute top-9 text-center">
         <strong className="text-xl">Iniciar Seción</strong>
@@ -43,11 +39,11 @@ function Login({ registerF }) {
             id="userName"
             {...register("userName", { required: true })}
           />
-          {
-            errors.userName &&(<p className="absolute top-[10rem] text-blue-950">
+          {errors.userName && (
+            <p className="absolute top-[10rem] text-blue-950">
               UserName is Required
-            </p>)
-          }
+            </p>
+          )}
         </div>
         <div className="flex flex-col gap-3">
           <label htmlFor="passw">Contraseña</label>
@@ -57,11 +53,11 @@ function Login({ registerF }) {
             id="passw"
             {...register("password", { required: true })}
           />
-          {
-            errors.password &&(<p className="absolute top-[17rem] text-blue-950">
+          {errors.password && (
+            <p className="absolute top-[17rem] text-blue-950">
               Password is Required
-            </p>)
-          }
+            </p>
+          )}
         </div>
         <button
           className="bg-red-900 h-12 rounded-3xl hover:bg-red-950"
