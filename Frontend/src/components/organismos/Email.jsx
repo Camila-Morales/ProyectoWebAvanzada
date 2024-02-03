@@ -1,9 +1,13 @@
 import { useState } from "react";
 import fondo from "/email.jpg";
 import axios from "axios";
+import Modal from "../moleculas/Modal";
 
 function Email() {
   const [email, setEmail] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+
+
   const OnChangeEmail = (e) => {
     const emailInput = e.target.value;
     setEmail(emailInput);
@@ -50,11 +54,13 @@ function Email() {
             "
       />
       <button
-        onClick={handleClick}
+        onClick={handleClick, () => setOpenModal(true)}
         className="text-2xl bg-red-700 hover:bg-red-900 text-white rounded-xl p-2"
       >
         Enviar
       </button>
+      <Modal open={openModal} onClose={() => setOpenModal(false)}/>
+
       <img src={fondo} className="absolute w-full h-full object-cover -z-10" />
       <div className="absolute w-full h-full object-cover bg-black opacity-70 -z-10"></div>
     </div>
