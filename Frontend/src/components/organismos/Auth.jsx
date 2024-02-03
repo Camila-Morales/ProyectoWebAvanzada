@@ -39,7 +39,7 @@ function Auth() {
           }`}
         >
           <h2>Lo que te Propongas</h2>
-          <h2>Consigelo</h2>
+          <h2>Consíguelo</h2>
           <h2>No te rindas</h2>
         </div>
       </div>

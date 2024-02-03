@@ -3,9 +3,9 @@ import home from "/home.jpg";
 
 function Home() {
   return (
-    <div className="flex flex-col gap-10 justify-center items-center relative overflow-hidden text-white w-full h-screen">
+    <div className="flex flex-col gap-10 justify-center items-center relative overflow-hidden text-white w-full h-screen" id="home">
      <h1  className="text-9xl max-md:text-4xl md:text-5xl lg:text-6xl xl:text-9xl mb-4 font-bold">
-        <TypeWriter text={"NO PAIN NO AGAIN"} speed={100}/>
+        <TypeWriter text={"NO PAIN NO GAIN"} speed={100}/>
       </h1>
       <p className="text-3xl max-md:text-lg md:text-5xl lg:text-6xl xl:text-3xl mb-4 text-center shadow-2xl">
         Estamos aquí para ayudarte a alcanzar tus objetivos y mejorar tu calidad

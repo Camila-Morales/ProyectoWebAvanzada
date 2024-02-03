@@ -3,7 +3,7 @@ import AboutUsRight from '../moleculas/AboutUsRight';
 
 function AboutUs() {
   return (
-    <div className="flex justify-between items-center bg-[#bcfcfc] p-3">
+    <div className="flex justify-between items-center bg-[#bcfcfc] p-3" id='about'>
 
       <div className="flex-1">
         <AboutUsLeft />

@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const menu = [
-    { name: "Home", icon: HiHome },
-    { name: "About Us", icon: HiStar },
-    { name: "Contact", icon: HiDevicePhoneMobile },
-    { name: "Testimonios", icon: HiAnnotation },
-    { name: "Planes", icon: HiOutlinePlus },
+    { name: "Home", icon: HiHome, link: "#home"},
+    { name: "About Us", icon: HiStar, link: "#about"},
+    { name: "Contact", icon: HiDevicePhoneMobile, link: "#contact"},
+    { name: "Planes", icon: HiOutlinePlus, link: "#planes"},
+    { name: "Testimonios", icon: HiAnnotation, link: "#testimonios"},    
   ];
   return (
     <div className="flex items-center justify-between fixed w-full z-40 h-14 bg-zinc-900 p-5">
@@ -24,7 +24,7 @@ function Navbar() {
         />
         <div className="hidden md:flex gap-8">
           {menu.map((item, index) => (
-            <NavbarItem key={index} name={item.name} Icon={item.icon} />
+            <NavbarItem key={index} name={item.name} Icon={item.icon} link={item.link} />
           ))}
         </div>
         <div className="flex md:hidden gap-5">

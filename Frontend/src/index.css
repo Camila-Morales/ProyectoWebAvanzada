@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.styleButtons{
-    @apply bg-slate-600 rounded-full p-1 hover:bg-white hover:text-black transition ease-linear;
+.styleButtons {
+  @apply bg-slate-600 rounded-full p-1 hover:bg-white hover:text-black transition ease-linear;
 }
-.styleInputs{
-    @apply bg-slate-600 h-9 p-2 outline-none rounded-xl;
+.styleInputs {
+  @apply bg-slate-600 h-9 p-2 outline-none rounded-xl;
+}
+
+html {
+  scroll-behavior: smooth;
 }

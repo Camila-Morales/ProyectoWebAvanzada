@@ -5,16 +5,19 @@ import Navbar from "../components/organismos/Navbar";
 import Testimonios from "../components/organismos/Testimonios";
 import Planes from "../components/organismos/planes";
 
+
 function App() {
     return (
-        <>
+        <div>
+          
           <Navbar/>
-          <Home/>
-          <AboutUs/>  
-          <Email/>
-          <Planes/>    
-          <Testimonios/>      
-        </>
+          <Home />
+          <AboutUs />  
+          <Email />
+          <Planes />    
+          <Testimonios />
+                
+        </div>
       );
 }
 

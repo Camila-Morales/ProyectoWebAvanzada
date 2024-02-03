@@ -8,6 +8,7 @@ function Testimonios() {
   return (
     <div
       className={`w-full h-screen  flex flex-col justify-center items-center relative overflow-hidden text-white`}
+      id="testimonios"
     >
       <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl mb-4">
         TESTIMONIOS
