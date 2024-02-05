@@ -13,6 +13,7 @@ function Email() {
     setEmail(emailInput);
   };
   const handleClick = (e) => {
+    setOpenModal(true);
     e.preventDefaul;
     axios({
       method: "post",
@@ -54,7 +55,7 @@ function Email() {
             "
       />
       <button
-        onClick={handleClick, () => setOpenModal(true)}
+        onClick={handleClick}
         className="text-2xl bg-red-700 hover:bg-red-900 text-white rounded-xl p-2"
       >
         Enviar
