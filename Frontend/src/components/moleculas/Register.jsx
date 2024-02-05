@@ -1,17 +1,24 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Register({ login }) {
   const { register, handleSubmit } = useForm();
-  const [passwordC, setPasswordC] = useState("");
-  const onChangeP = (e) => {
-    const data = e.target.value;
-    setPasswordC(data);
-  };
+  const { signup, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
   const handleActivate = (e) => {
     e.preventDefault();
     login();
   };
+  const OnSubmit = handleSubmit(async (values) => {
+    signup(values);
+  });
+
+  useEffect(() => {
+    if(isAuthenticated) navigate('/profile');
+  }, [isAuthenticated,navigate]);
   return (
     <div className=" relative w-[28rem] h-[30rem] text-white bg-red-700 flex flex-col  gap-5 justify-center items-center ">
       <h1 className="absolute top-9 text-center">
@@ -19,9 +26,7 @@ function Register({ login }) {
         <hr className="w-[15rem]" />
       </h1>
       <form
-        onSubmit={handleSubmit((val) => {
-          console.log(val);
-        })}
+        onSubmit={OnSubmit}
         className="flex flex-col h-96 gap-3 justify-end"
       >
         <div className="flex gap-5">
@@ -35,7 +40,7 @@ function Register({ login }) {
             className="styleInputs"
             type="text"
             name="lastName"
-            {...register("lastname", { required: true })}
+            {...register("lastName", { required: true })}
             placeholder="Apellido"
           />
         </div>
@@ -56,9 +61,7 @@ function Register({ login }) {
         <input
           className="styleInputs"
           type="password"
-          name="passwordConfirm"
-          onChange={onChangeP}
-          value={passwordC}
+          {...register("passwordConfirm", { required: true })}
           required
           placeholder="Ingrese Nuevamente su contraseña"
         />
