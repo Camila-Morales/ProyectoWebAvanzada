@@ -1,9 +1,9 @@
 import { Resend } from "resend";
 import env from "dotenv";
-import fs from 'fs';
-env.config()
+import fs from "fs";
+env.config();
 
-const htmlContent = fs.readFileSync('./src/templates/index.html', 'utf-8');
+const htmlContent = fs.readFileSync("./src/templates/index.html", "utf-8");
 const resend = new Resend(process.env.API_KEY_EMAIL);
 
 export const sendEmail = async (email) => {
