@@ -7,7 +7,7 @@ function Home() {
      <h1  className="text-9xl max-md:text-4xl md:text-5xl lg:text-6xl xl:text-9xl mb-4 font-bold">
         <TypeWriter text={"NO PAIN NO GAIN"} speed={100}/>
       </h1>
-      <p className="text-3xl max-md:text-lg md:text-5xl lg:text-6xl xl:text-3xl mb-4 text-center shadow-2xl">
+      <p className="text-3xl max-md:text-lg md:text-5xl lg:text-6xl xl:text-3xl mb-4 text-center shadow-2xl"> 
         Estamos aquí para ayudarte a alcanzar tus objetivos y mejorar tu calidad
         de vida.
         <br />

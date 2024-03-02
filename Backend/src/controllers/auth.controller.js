@@ -28,6 +28,7 @@ export const Register = async (req, res) => {
       email,
       birthdate,
       gender,
+      plan:0
     });
     const AuthSaved = await newAuth.save();
     await newUser.save();

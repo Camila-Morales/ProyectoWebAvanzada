@@ -1,7 +1,9 @@
 import express from "express"
-import email from "./routes/email.routes.js"
 import { connectDB } from "./libs/DB.js";
+import email from "./routes/email.routes.js"
+import user from "./routes/user.routes.js"
 import auth from './routes/auth.routes.js'
+import calendar from './routes/calendar.routes.js'
 import cors from 'cors'
 import cookieParser from "cookie-parser";
 
@@ -19,6 +21,8 @@ app.get('/',(req,res)=>{
 })
 app.use('/api',email)
 app.use('/api',auth)
+app.use('/api',user)
+app.use('/api',calendar)
 
 app.listen(2025,()=>{
     console.log("Servidor in http://localhost:2025")

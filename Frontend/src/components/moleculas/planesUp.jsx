@@ -13,11 +13,10 @@ function planesUp() {
     <div className="flex flex-col">
       <TittlePlanes />
       <div className="flex gap-10 m-3 max-md:flex-wrap">
-        <CardPlanes texto={"PLATINUM FIT"} arregloPlan={plan1} precio={30} />
-        <CardPlanes texto={"ELITE WELLNESS"} arregloPlan={plan3} precio={100} />
-        <CardPlanes texto={"GOLD PERFORMANCE"} arregloPlan={plan2} precio={50} />
+        <CardPlanes dir={'/compra'} texto={"PLATINUM FIT"} arregloPlan={plan1} precio={30} />
+        <CardPlanes dir={'/compra'}texto={"ELITE WELLNESS"} arregloPlan={plan3} precio={100} />
+        <CardPlanes dir={'/compra'}texto={"GOLD PERFORMANCE"} arregloPlan={plan2} precio={50} />
       </div>
-
 
     </div>
   );

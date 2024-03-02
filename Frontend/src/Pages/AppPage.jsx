@@ -9,7 +9,6 @@ import Planes from "../components/organismos/planes";
 function App() {
     return (
         <div>
-          
           <Navbar/>
           <Home />
           <AboutUs />  

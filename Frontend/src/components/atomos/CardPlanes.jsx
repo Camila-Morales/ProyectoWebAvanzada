@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-function CardPlanes({ texto, arregloPlan, precio }) {
+function CardPlanes({ texto, arregloPlan, precio,dir}) {
   return (
     <div className="flex flex-col w-1/3 gap-3 max-md:w-screen">
       <div className="bg-[#dcdcdc] p-1 rounded-md text-center h-11">
@@ -25,7 +25,7 @@ function CardPlanes({ texto, arregloPlan, precio }) {
             return <li key={index}>{element}</li>;
           })}
         </ul>
-        <Button text={"COMPRAR"} />
+        <Button dir={dir} text={"COMPRAR"} />
       </div>
     </div>
   );

@@ -31,5 +31,10 @@ const User = mongoose.Schema({
     trim: true,
     require: true,
   },
+  plan:{
+    type:Number,
+    trim:true,
+    require:true
+  }
 });
 export default mongoose.model("Users", User);
