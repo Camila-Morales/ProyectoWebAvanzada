@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import NavbarProfile from "../components/organismos/NavbarProfile";
-import Planes from "../components/organismos/planes";
+// import Planes from "../components/organismos/planes";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
@@ -34,6 +34,7 @@ function Historial() {
   const { user } = useAuth();
   //guardo datos del datos
   const [userProfile, setUserProfile] = useState("");
+  const [eventCalendar, setEventCalendar] = useState("");
 
   const [newEvent, setNewEvent] = useState({
     title: "",
@@ -45,20 +46,23 @@ function Historial() {
   const handleAddEvent = () => {
     setAllEvents((prevEvents) => [...prevEvents, newEvent]);
     setNewEvent({
-      title: `${user.userName}`,
-      start: currentDate,
-      end: currentDate,
+      title: `${eventCalendar.userName}`,
+      start: `${eventCalendar.day}`,
+      end: `${eventCalendar.day}`,
     });
   };
 
   useEffect(() => {
     //llamo a todos los datos de los usaurio del perfil
+    axios.get(`http://localhost:2025/api/user/${user.userName}`).then((res) => {
+      setUserProfile(res.data);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     axios
       .get(`http://localhost:2025/api/calendar/${user.userName}`)
       .then((res) => {
-        setUserProfile(res.data);
+        setEventCalendar(res.data);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -71,7 +75,10 @@ function Historial() {
           <div className="flex justify-center">
             <h1 className="text-4xl font-bold">Historial de Asistencia</h1>
           </div>
-          <button className="text-white font-bold py-2 px-4 rounded">
+          <button
+            className="text-white font-bold py-2 px-4 rounded"
+            onClick={handleAddEvent}
+          >
             Mostrar Historial
           </button>
           <div className="flex justify-center">
