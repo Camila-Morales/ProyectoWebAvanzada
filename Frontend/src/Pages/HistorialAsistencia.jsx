@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import NavbarProfile from "../components/organismos/NavbarProfile";
-import Planes from "../components/organismos/planes";
+// import Planes from "../components/organismos/planes";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
@@ -34,30 +34,48 @@ function Historial() {
   const { user } = useAuth();
   //guardo datos del datos
   const [userProfile, setUserProfile] = useState("");
+  // const [eventCalendar, setEventCalendar] = useState([{}]);
 
-  const [newEvent, setNewEvent] = useState({
+  const [setNewEvent] = useState({
     title: "",
     start: "",
     end: "",
   });
   const [allEvents, setAllEvents] = useState(Events);
 
-  const handleAddEvent = () => {
-    setAllEvents((prevEvents) => [...prevEvents, newEvent]);
-    setNewEvent({
-      title: `${user.userName}`,
-      start: currentDate,
-      end: currentDate,
-    });
+  const handleAddEvent = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:2025/api/calendar/${user.userName}`
+      );
+      const data = await response.json();
+
+      // Map the fetched data to match the format expected by react-big-calendar
+      const events = data.map((event) => ({
+        title: event.userName,
+        start: new Date(event.day),
+        end: new Date(event.day),
+      }));
+
+      // Update the allEvents state with the fetched events
+      setAllEvents([...allEvents, ...events]);
+
+      // Reset the newEvent state
+      setNewEvent({
+        title: "",
+        start: "",
+        end: "",
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   useEffect(() => {
     //llamo a todos los datos de los usaurio del perfil
-    axios
-      .get(`http://localhost:2025/api/calendar/${user.userName}`)
-      .then((res) => {
-        setUserProfile(res.data);
-      });
+    axios.get(`http://localhost:2025/api/user/${user.userName}`).then((res) => {
+      setUserProfile(res.data);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -70,10 +88,14 @@ function Historial() {
         <div className="w-10/12">
           <div className="flex justify-center">
             <h1 className="text-4xl font-bold">Historial de Asistencia</h1>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={handleAddEvent}
+            >
+              Mostrar Historial
+            </button>
           </div>
-          <button className="text-white font-bold py-2 px-4 rounded">
-            Mostrar Historial
-          </button>
+
           <div className="flex justify-center">
             <div className="w-10/12">
               <Calendar
