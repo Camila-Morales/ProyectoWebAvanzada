@@ -5,7 +5,6 @@ import Profile from "./Pages/ProfilePage.jsx";
 import ProtectedRout from "./ProtectedRout.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PlanCompra from "./Pages/CompraPlan.jsx";
-
 function App() {
   return (
     <>
@@ -18,6 +17,7 @@ function App() {
             <Route element={<ProtectedRout />}>
               <Route path="/profile" element={<Profile />} />
               <Route path="/compra" element={<PlanCompra/>}/>
+              {/* <Route path="/edit/:userName" element={<PageEdit/>}/> */}
             </Route>
           </Routes>
         </BrowserRouter>
