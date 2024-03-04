@@ -60,8 +60,7 @@ function Email() {
       >
         Enviar
       </button>
-      <Modal open={openModal} onClose={() => setOpenModal(false)}/>
-
+      <Modal open={openModal} text={"Nos pondremos en contacto contigo lo más pronto posible!"} dir={''}/>
       <img src={fondo} className="absolute w-full h-full object-cover -z-10" />
       <div className="absolute w-full h-full object-cover bg-black opacity-70 -z-10"></div>
     </div>

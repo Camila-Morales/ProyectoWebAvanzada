@@ -79,7 +79,7 @@ function Historial() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
+    <div  className="pt-28">
       <NavbarProfile userName={user.userName} />
       <h2 className="text-3xl">
         {userProfile.name} {userProfile.lastName}

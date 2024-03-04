@@ -11,7 +11,6 @@ import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useNavigate } from "react-router-dom";
 
-
 const locales = {
   "en-US": import("date-fns/locale/en-US"),
 };
@@ -33,6 +32,7 @@ const Events = [
 ];
 
 const currentDate = new Date();
+import Table from "../components/organismos/Table";
 
 function Profile() {
   const { user } = useAuth();
@@ -60,8 +60,8 @@ function Profile() {
     axios.post("http://localhost:2025/api/calendar", body);
   };
   const navigate = useNavigate();
-  const histori = ()=>{
-      navigate('/historial');
+  const histori = () => {
+    navigate("/historial");
   };
 
   useEffect(() => {
@@ -74,22 +74,13 @@ function Profile() {
   return (
     <>
       <NavbarProfile userName={user.userName} />
-      <div className="w-full flex justify-center items-center flex-col gap-4 mt-5 mb-5">
+      <div className="w-full flex justify-center items-center flex-col gap-4 mt-5 mb-5 pt-7">
         <h1 className="text-7xl">Bienvenido 👋</h1>
         <h2 className="text-3xl">
           {userProfile.name} {userProfile.lastName}
         </h2>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleAddEvent}
-        >
-          Registrar Asistencia
-        </button>
-        <button onClick={histori} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-          Historial de Asistencia
-        </button>
       </div>
-      {userProfile.plan === 0 ? (
+      {userProfile.plan === 0 && user.userName != "AdmAdmin0" ? (
         <div>
           <div className="flex justify-center items-center flex-col mt-5 mb-5">
             <p className="text-center font-semibold">
@@ -102,10 +93,21 @@ function Profile() {
           <Planes />
         </div>
       ) : null}
-      {userProfile.plan >= 1 ? (
+      {userProfile.plan >= 1 && user.userName != "AdmAdmin0" ? (
         <div>
           {/*de aqui en eadelante se agrega LOS DEMAS "COMPONENTES"  */}
-          <h1>Tiene Almenos Un plan</h1>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleAddEvent}
+          >
+            Registrar Asistencia
+          </button>
+          <button
+            onClick={histori}
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Historial de Asistencia
+          </button>
           <Calendar
             localizer={localizer}
             events={allEvents}
@@ -115,8 +117,8 @@ function Profile() {
           />
         </div>
       ) : null}
+      {user.userName === "AdmAdmin0" ? <Table /> : null}
     </>
   );
 }
-
 export default Profile;

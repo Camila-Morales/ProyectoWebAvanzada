@@ -44,6 +44,12 @@ export const Register = async (req, res) => {
   }
 };
 
+export const deleteAuth = async (req, res) => {
+  const {userName}=req.params
+  const deletedUser = await Auth.findOneAndDelete({userName})
+  res.send("User deleted successfully");
+};
+
 export const Login = async (req, res) => {
   try {
     const { userName, password } = req.body;
@@ -88,3 +94,4 @@ export const verifyToken = (req, res) => {
     });
   });
 };
+
