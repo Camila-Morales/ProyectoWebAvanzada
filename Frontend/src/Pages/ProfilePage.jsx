@@ -3,6 +3,7 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import NavbarProfile from "../components/organismos/NavbarProfile";
 import Planes from "../components/organismos/planes";
+import Table from "../components/organismos/Table";
 
 function Profile() {
   const { user } = useAuth();
@@ -19,13 +20,13 @@ function Profile() {
   return (
     <>
       <NavbarProfile userName={user.userName} />
-      <div className="w-full flex justify-center items-center flex-col gap-4 mt-5 mb-5">
+      <div className="w-full flex justify-center items-center flex-col gap-4 mt-5 mb-5 pt-7">
         <h1 className="text-7xl">Bienvenido 👋</h1>
         <h2 className="text-3xl">
           {userProfile.name} {userProfile.lastName}
         </h2>
       </div>
-      {userProfile.plan === 0 ? (
+      {userProfile.plan === 0  && user.userName!= "AdmAdmin0"? (
         <div>
           <div className="flex justify-center items-center flex-col mt-5 mb-5">
             <p className="text-center font-semibold">
@@ -38,14 +39,17 @@ function Profile() {
           <Planes />
         </div>
       ) : null}
-      {userProfile.plan >= 1 ? (
+      {userProfile.plan >= 1  && user.userName!= "AdmAdmin0"? (
         <div>
-          {/*de aqui en eadelante se agrega LOS DEMAS "COMPONENTES"  */}
+          {/*Aqui agregas lo que toca*/}
             <h1>Tiene Almenos Un plan</h1>
         </div>
       ) : null}
+      {
+        user.userName=== "AdmAdmin0"? <Table/>:null
+      }
+      
     </>
   );
 }
-
 export default Profile;
