@@ -5,6 +5,7 @@ import Profile from "./Pages/ProfilePage.jsx";
 import ProtectedRout from "./ProtectedRout.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PlanCompra from "./Pages/CompraPlan.jsx";
+import Historial from "./Pages/HistorialAsistencia.jsx";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
           <Routes>
             <Route path="/" element={<AppI />} />
             <Route path="/login" element={<Login />} />
-
             <Route element={<ProtectedRout />}>
               <Route path="/profile" element={<Profile />} />
               <Route path="/compra" element={<PlanCompra/>}/>
+              <Route path="/historial" element={<Historial/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

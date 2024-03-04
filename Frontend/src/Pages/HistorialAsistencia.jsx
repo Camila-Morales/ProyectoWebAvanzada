@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import NavbarProfile from "../components/organismos/NavbarProfile";
-import Planes from "../components/organismos/planes";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";

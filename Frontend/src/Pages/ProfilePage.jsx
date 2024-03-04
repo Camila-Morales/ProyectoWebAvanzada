@@ -9,6 +9,8 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { useNavigate } from "react-router-dom";
+
 
 const locales = {
   "en-US": import("date-fns/locale/en-US"),
@@ -57,6 +59,10 @@ function Profile() {
     };
     axios.post("http://localhost:2025/api/calendar", body);
   };
+  const navigate = useNavigate();
+  const histori = ()=>{
+      navigate('/historial');
+  };
 
   useEffect(() => {
     //llamo a todos los datos de los usaurio del perfil
@@ -79,7 +85,7 @@ function Profile() {
         >
           Registrar Asistencia
         </button>
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <button onClick={histori} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
           Historial de Asistencia
         </button>
       </div>
