@@ -94,7 +94,7 @@ function Profile() {
         </div>
       ) : null}
       {userProfile.plan >= 1 && user.userName != "AdmAdmin0" ? (
-        <div>
+        <div className="w-full flex justify-center items-center flex-col gap-4  mb-5 ">
           {/*de aqui en eadelante se agrega LOS DEMAS "COMPONENTES"  */}
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
